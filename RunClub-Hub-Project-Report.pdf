@@ -1,0 +1,148 @@
+%PDF-1.4
+%Report
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Length 2387 >>
+stream
+0.10 0.22 0.36 rg BT /F2 21 Tf 54 790 Td (RunClub Hub - Project Report) Tj ET
+0.30 0.38 0.46 rg BT /F1 10 Tf 54 766 Td (Project overview and use of useEffect, Redux, and Axios) Tj ET
+0.18 0.48 0.62 RG 54 752 m 541 752 l S
+0.10 0.34 0.48 rg BT /F2 13 Tf 54 724 Td (Project overview) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 704 Td (RunClub Hub is a full-stack running-club application. Members can browse running events,) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 690 Td (register or sign in, create events, and leave or manage feedback.) Tj ET
+0.10 0.34 0.48 rg BT /F2 13 Tf 54 666 Td (Technology and architecture) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 646 Td (- Frontend: React 18 and Vite, with React Router for page navigation.) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 625 Td (- Shared event and feedback state: Redux Toolkit with React-Redux.) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 604 Td (- Authentication state: React Context and localStorage; it is separate from Redux.) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 583 Td (- Backend: Node.js and Express, with MongoDB/Mongoose for persistence.) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 562 Td (- HTTP communication: Axios, configured through one shared client.) Tj ET
+0.10 0.34 0.48 rg BT /F2 13 Tf 54 538 Td (Main user flows) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 518 Td (- Browse events and filter by event type.) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 497 Td (- Register or log in; the server returns a signed token.) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 476 Td (- Signed-in users can create events and submit feedback.) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 455 Td (- Authors can delete their own events or feedback; the API checks ownership.) Tj ET
+0.10 0.34 0.48 rg BT /F2 13 Tf 54 431 Td (Frontend routes) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 411 Td (The application routes are / \(events\), /login, /register, and a not-found route. Route) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 397 Td (definitions are in client/src/App.jsx.) Tj ET
+0.38 0.42 0.46 rg BT /F1 9 Tf 58 376 Td (Scope: this report documents the project structure and source-code usage visible in the) Tj ET
+0.38 0.42 0.46 rg BT /F1 9 Tf 58 362 Td (client and server folders.) Tj ET
+0.72 0.75 0.78 RG 54 42 m 541 42 l S
+0.42 0.45 0.48 rg BT /F1 8 Tf 54 26 Td (RunClub Hub Project Report) Tj ET
+0.42 0.45 0.48 rg BT /F1 8 Tf 490 26 Td (Page 1 of 3) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 3172 >>
+stream
+0.10 0.22 0.36 rg BT /F2 21 Tf 54 790 Td (React effects and Redux) Tj ET
+0.30 0.38 0.46 rg BT /F1 10 Tf 54 766 Td (Where asynchronous page loading and shared state are implemented) Tj ET
+0.18 0.48 0.62 RG 54 752 m 541 752 l S
+0.10 0.34 0.48 rg BT /F2 13 Tf 54 724 Td (useEffect: two application call sites) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 704 Td (- client/src/pages/EventsPage.jsx, around line 20: on page load, GET /events is requested.) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 690 Td (Loading, error, and returned event data are dispatched to Redux. The effect uses an) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 676 Td (isCurrent guard during cleanup.) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 655 Td (- client/src/components/FeedbackList.jsx, around line 23: GET /events/:eventId/feedbacks is) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 641 Td (requested when the list is shown or eventId changes. Results and request status are) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 627 Td (dispatched to Redux; cleanup prevents stale dispatches.) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 606 Td (In both cases, useEffect is used for fetching data in response to component lifecycle or) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 592 Td (dependency changes. Other network calls are triggered by user actions instead.) Tj ET
+0.10 0.34 0.48 rg BT /F2 13 Tf 54 568 Td (Redux setup and state) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 548 Td (- client/src/main.jsx, around line 13: the Redux Provider makes the store available) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 534 Td (throughout the React app.) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 513 Td (- client/src/redux/store.js: configureStore combines the events and feedback reducers.) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 492 Td (- client/src/redux/eventsSlice.js: stores events, loading, and error state; actions) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 478 Td (replace, add, remove, and update request status.) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 457 Td (- client/src/redux/feedbackSlice.js: stores feedback, loading, and error state; actions) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 443 Td (load, add, remove, or clear feedback.) Tj ET
+0.10 0.34 0.48 rg BT /F2 13 Tf 54 419 Td (Components connected to Redux) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 399 Td (- EventsPage reads event data with useSelector and dispatches load results and status.) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 378 Td (- EventForm dispatches a newly created event; EventCard reads feedback and dispatches event) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 364 Td (and feedback removal.) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 343 Td (- FeedbackList reads and updates feedback; FeedbackForm dispatches newly submitted) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 329 Td (feedback.) Tj ET
+0.38 0.42 0.46 rg BT /F1 9 Tf 58 308 Td (Authentication is managed separately in client/src/context/AuthContext.jsx, rather than) Tj ET
+0.38 0.42 0.46 rg BT /F1 9 Tf 58 294 Td (in a Redux slice.) Tj ET
+0.72 0.75 0.78 RG 54 42 m 541 42 l S
+0.42 0.45 0.48 rg BT /F1 8 Tf 54 26 Td (RunClub Hub Project Report) Tj ET
+0.42 0.45 0.48 rg BT /F1 8 Tf 490 26 Td (Page 2 of 3) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 3629 >>
+stream
+0.10 0.22 0.36 rg BT /F2 21 Tf 54 790 Td (Axios and API request map) Tj ET
+0.30 0.38 0.46 rg BT /F1 10 Tf 54 766 Td (How the browser communicates with the Express API) Tj ET
+0.18 0.48 0.62 RG 54 752 m 541 752 l S
+0.10 0.34 0.48 rg BT /F2 13 Tf 54 724 Td (Shared Axios client) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 704 Td (client/src/api/axiosClient.js creates the shared Axios instance. Its base URL is) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 690 Td (VITE_API_URL when configured, otherwise http://localhost:5000/api. A request interceptor) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 676 Td (adds the token from localStorage as an Authorization header when one exists.) Tj ET
+0.10 0.34 0.48 rg BT /F2 13 Tf 54 652 Td (Requests and their source files) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 632 Td (- POST /auth/login and POST /auth/register - client/src/context/AuthContext.jsx. Successful) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 618 Td (responses update React auth state and localStorage.) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 597 Td (- GET /events - client/src/pages/EventsPage.jsx. The response populates the Redux events) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 583 Td (slice.) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 562 Td (- POST /events - client/src/components/EventForm.jsx. The response is added to Redux.) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 541 Td (- DELETE /events/:id - client/src/components/EventCard.jsx. On success, the event and its) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 527 Td (feedback are removed from Redux.) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 506 Td (- GET /events/:eventId/feedbacks - client/src/components/FeedbackList.jsx. The response is) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 492 Td (saved in Redux for the selected event.) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 471 Td (- POST /events/:eventId/feedbacks - client/src/components/FeedbackForm.jsx. The returned) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 457 Td (feedback is added to Redux.) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 436 Td (- DELETE /feedbacks/:feedbackId - client/src/components/FeedbackList.jsx. The deleted) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 422 Td (feedback is removed from Redux.) Tj ET
+0.10 0.34 0.48 rg BT /F2 13 Tf 54 398 Td (End-to-end pattern) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 378 Td (For initial page data, useEffect starts an Axios GET request and dispatches the result or) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 364 Td (error to Redux. For form submissions and deletions, event handlers make Axios requests,) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 350 Td (then update Redux after success. Redux supplies shared data to the UI; Axios handles HTTP) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 336 Td (transport.) Tj ET
+0.10 0.34 0.48 rg BT /F2 13 Tf 54 312 Td (Relevant source files) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 292 Td (- Client: client/src/pages/EventsPage.jsx, client/src/components/FeedbackList.jsx,) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 278 Td (client/src/api/axiosClient.js, client/src/redux/store.js, client/src/redux/eventsSlice.js,) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 264 Td (client/src/redux/feedbackSlice.js.) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 243 Td (- Server API: server/routes/authRoutes.js, server/routes/eventRoutes.js,) Tj ET
+0.15 0.18 0.22 rg BT /F1 10 Tf 58 229 Td (server/routes/feedbackRoutes.js.) Tj ET
+0.38 0.42 0.46 rg BT /F1 9 Tf 58 208 Td (Generated November 10, 2026.) Tj ET
+0.72 0.75 0.78 RG 54 42 m 541 42 l S
+0.42 0.45 0.48 rg BT /F1 8 Tf 54 26 Td (RunClub Hub Project Report) Tj ET
+0.42 0.45 0.48 rg BT /F1 8 Tf 490 26 Td (Page 3 of 3) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
+endobj
+xref
+0 11
+0000000000 65535 f 
+0000000017 00000 n 
+0000000066 00000 n 
+0000000136 00000 n 
+0000000206 00000 n 
+0000000281 00000 n 
+0000002720 00000 n 
+0000002856 00000 n 
+0000006080 00000 n 
+0000006216 00000 n 
+0000009897 00000 n 
+trailer
+<< /Size 11 /Root 1 0 R >>
+startxref
+10034
+%%EOF

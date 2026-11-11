@@ -1,0 +1,8 @@
+# Never commit environment files or secrets.
+**/.env
+**/.env.*
+!**/.env.example
+
+# Exclude installed packages and generated build output.
+**/node_modules/
+**/dist/
